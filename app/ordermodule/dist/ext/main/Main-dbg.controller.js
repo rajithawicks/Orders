@@ -4,7 +4,7 @@ sap.ui.define(
         'sap/m/MessageToast',
         'sap/ui/model/json/JSONModel',
     ],
-    function (PageController, MessageToast, JSONModel) {
+    function(PageController, MessageToast, JSONModel) {
         'use strict';
 
         return PageController.extend('ordermodule.ext.main.Main', {
@@ -13,10 +13,10 @@ sap.ui.define(
              * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
              * @memberOf ordermodule.ext.main.Main
              */
-            onInit: function () {
+             onInit: function () {
 
-                PageController.prototype.onInit.apply(this);
-                this.getView().getModel("ui").setProperty("/isEditable", true);
+                 PageController.prototype.onInit.apply(this);
+                 this.getView().getModel("ui").setProperty("/isEditable", true);
 
                 // var oUIModel = new JSONModel({
                 //     // fixes for sap.fe flowcle
@@ -24,48 +24,14 @@ sap.ui.define(
                 //     "editMode": "Editable"
                 // });
                 // this.getView().setModel(oUIModel, "ui");
+            
+             },
 
-            },
-
-            onSelectEdit: function (event) {
+             onSelectEdit: function (event) {
 
                 MessageToast.show('Toggle edit pressed');
                 this.getView().getModel("ui").setProperty("/isEditable", event.getParameter("selected"));
 
-            },
-
-            saveDocument: function () {
-
-                MessageToast.show('Save pressed');
-
-                var oContext = this.getView().byId("OrderTable").getBinding("items")
-                    .create({
-                        "orderid": "222",
-                        "customername": "EEEEEEEE",
-                        "contactperson": "Mike",
-                        "grossamount": 122,
-                        "currency": "EUR",
-                    });
-
-
-                // Note: This promise fails only if the transient entity is deleted
-                oContext.created().then(function () {
-                    // sales order successfully created
-                    MessageToast.show('created');
-                }, function (oError) {
-                    MessageToast.show('error');
-                    // handle rejection of entity creation; if oError.canceled === true then the transient entity has been deleted 
-                });
-
-
-                //draft saving 
-                // var oView = this.getView();
-                // function resetBusy() {
-                //     oView.setBusy(false);
-                // }
-                // // lock UI until submitBatch is resolved, to prevent errors caused by updates while submitBatch is pending
-                // oView.setBusy(true);
-                // oView.getModel().submitBatch(oView.getModel().getUpdateGroupId()).then(resetBusy, resetBusy);
             },
 
             /**

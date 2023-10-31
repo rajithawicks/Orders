@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "MyDBAcccess",
+            "database": "${workspaceFolder:Orders}/db.sqlite"
+        }
+    ]
+}

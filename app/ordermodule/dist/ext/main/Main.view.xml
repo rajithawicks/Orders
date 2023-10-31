@@ -27,15 +27,5 @@
                        enableExport="true" enableFullScreen="true" enablePaste="false" filterBar="ordersfilterbar" header="Order Management" headerVisible="true" isSearchable="true"  selectionMode="Multi" type="Responsive" />
             
         </content>
-
-                <footer>
-            <OverflowToolbar id="fot">
-                <ToolbarSpacer id="sdf" />
-                <Button id="save" text="Save" press="saveDocument" type="Emphasized"
-                    visible="{ui>/isEditable}" />  
-                <Button id="cancelButton" text="Cancel" press="cancelDocument" 
-                    visible="{ui>/isEditable}"/>
-            </OverflowToolbar>    
-        </footer>
     </Page>
 </mvc:View>

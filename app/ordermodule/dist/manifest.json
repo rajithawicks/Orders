@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/sap/odata/API_SALES_ORDER/",
+                "uri": "sap/odata/API_SALES_ORDER/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
